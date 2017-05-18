@@ -1,14 +1,50 @@
 html
 	head
 		title admin page
-		script(src="jquery.min.js")
-		script(src="js/app.js")
+		meta(charset="utf-8")
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet")
 	body
-		form(method="post" action="/setArticle")
-			label(for="inputTitreArticle") Ecrire un titre
-			input#inputTitreArticle(name="titre" type="text")
-			label(for="contenuArticle") Ecrire un article
-			textarea#contenuArticle(name="article" type="text")
-			button#buttonEnvoyer Envoyer
-
 		
+		nav.navbar.navbar-inverse
+			div.container
+				div.navbar-header
+					ul.nav.navbar-nav
+						li
+							a(href='/blog') Vers le blog
+
+
+
+
+		h1 Admin Page
+		h2 Nouvelle Article
+
+		form(method="get" action="/setArticle")
+			div.form-group
+				label(for="inputTitreArticle") Ecrire le titre
+				input.form-control#inputTitreArticle(name="titre" type="text")
+			div.form-group
+				label(for="contenuArticle") Ecrire l'article
+				textarea.form-control#contenuArticle(name="article" type="text")
+				button#buttonEnvoyer.btn.btn-success Envoyer
+
+		table.table.table-striped#dynamicTable
+			thead
+				th Titre
+			tbody
+
+		h2 Modification Article
+
+		form#formModif
+			div.form-group
+				label(for="inputTitreArticleModif") Modifier le titre
+				input.form-control#inputTitreArticleModif(name="titre" type="text")
+			div.form-group
+				label(for="contenuArticleModif") Modifier l'article
+				textarea.form-control#contenuArticleModif(name="article" type="text" maxlength=150)
+			button#buttonEnvoyerModif.btn.btn-success(type="submit") Envoyer
+
+
+
+		script(src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript")
+		script(src="js/app.js" type="text/javascript")
